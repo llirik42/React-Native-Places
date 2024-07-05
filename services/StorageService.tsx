@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import LocationDto from "../dto/LocationDto";
-import WeatherDto from '../dto/WeatherDto';
-import PlaceDto from '../dto/PlaceDto';
+import LocationDto from "@/dto/LocationDto";
+import WeatherDto from '@/dto/WeatherDto';
+import PlaceDto from '@/dto/PlaceDto';
 
 
 export default class StorageService {

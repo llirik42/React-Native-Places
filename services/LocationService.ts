@@ -1,4 +1,4 @@
-import LocationDto from "../dto/LocationDto";
+import LocationDto from "@/dto/LocationDto";
 import ServiceUtils from "./ServiceUtils";
 
 

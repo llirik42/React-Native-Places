@@ -1,6 +1,6 @@
-import LocationDto from "../dto/LocationDto";
+import LocationDto from "@/dto/LocationDto";
+import PlaceDto from "@/dto/PlaceDto";
 import ServiceUtils from "./ServiceUtils";
-import PlaceDto from "../dto/PlaceDto";
 
 
 export default class PlaceService {

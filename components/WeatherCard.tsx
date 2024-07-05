@@ -1,20 +1,55 @@
-import { BORDER_RADIUS } from '../constants';
-import { StyleSheet, Text, View, Image } from 'react-native'
-import WeatherDto from '@/app/dto/WeatherDto';
+import { StyleSheet, Text, View, Image, FlatList } from 'react-native'
+import { BORDER_RADIUS } from '@/constants';
+import WeatherDto from '@/dto/WeatherDto';
 
+
+class WeatherProperty {
+  constructor(public title: string, public producer: (weather: WeatherDto) => string) {}
+}
 
 export default function WeatherCard({weather}: {weather: WeatherDto | null}) {
-  const getTemperatureRepr = (temperature: number) => {
-    return `${Math.round(temperature)}°`;
+  const pascalesToMillimeters = (p: number) => {
+    return p / 133.332;
   }
 
-  const getWindSpeedRepr = (windSpeed: number) => {
-    return `${Math.round(windSpeed)} м/с`;
-  }
+  const getTemperatureRepr = (temperature: number) => `${Math.round(temperature)}°`;
 
-  const getHumidityRepr = (humidity: number) => {
-    return `${Math.round(humidity)}%`;
-  }
+  const getWindSpeedRepr = (weather: WeatherDto) => `${Math.round(weather.windSpeed)} м/с`;
+
+  const getHumidityRepr = (weather: WeatherDto) => `${Math.round(weather.humidity)}%`;
+
+  const getPressureRepr = (weather: WeatherDto) => `${Math.round(pascalesToMillimeters(weather.pressure * 100))} мм рт. ст.`
+  
+  const getVisibilityRepr = (weather: WeatherDto) => {
+    const visibility: number = weather.visibility;
+    
+    return visibility >= 1000
+      ? `${Math.round(weather.visibility / 1000)} км`
+      : `${weather.visibility} м`
+  };
+
+  const properties: WeatherProperty[] = [
+    new WeatherProperty(
+      "Ощущается как",
+      (weather: WeatherDto) => getTemperatureRepr(weather.feelsLike)
+    ),
+    new WeatherProperty(
+      "Ветер",
+      getWindSpeedRepr,
+    ),
+    new WeatherProperty(
+      "Влажность",
+      getHumidityRepr,
+    ),
+    new WeatherProperty(
+      "Давление",
+      getPressureRepr,
+    ),
+    new WeatherProperty(
+      "Видимость",
+      getVisibilityRepr,
+    ),
+  ];
 
   return weather == null ? (<></>) : (
     <View style={styles.container}>
@@ -25,26 +60,18 @@ export default function WeatherCard({weather}: {weather: WeatherDto | null}) {
       <View style={styles.additionalInfoContainer}>
         <View style={styles.additionalDataContainer}>
           <View style={styles.blockContainer}>
-            <View style={styles.itemContainer}>
-              <Text style={styles.addinitionalData}>Ощущается как </Text>
-            </View>
-            <View style={styles.itemContainer}>
-              <Text style={styles.addinitionalData}>Ветер</Text>
-            </View>
-            <View style={styles.itemContainer}>
-              <Text style={styles.addinitionalData}>Влажность</Text>
-            </View>
+            {properties.map((item) => (
+              <View style={styles.itemContainer} key={item.title}>
+                <Text style={styles.addinitionalData}>{item.title}</Text>
+              </View>
+            ))}
           </View>
           <View style={[styles.blockContainer, styles.valuesContainer]}>
-            <View style={styles.itemContainer}>
-              <Text style={styles.addinitionalData}>{getTemperatureRepr(weather.feelsLike)}</Text>
-            </View>
-            <View style={styles.itemContainer}>
-              <Text style={styles.addinitionalData}>{getWindSpeedRepr(weather.windSpeed)}</Text>
-            </View>
-            <View style={styles.itemContainer}>
-              <Text style={styles.addinitionalData}>{getHumidityRepr(weather.humidity)}</Text>
-            </View>
+            {properties.map((item) => (
+              <View style={styles.itemContainer} key={item.title}>
+                <Text style={styles.addinitionalData}>{item.producer(weather)}</Text>
+              </View>
+            ))}
           </View>
         </View>
         <View style={styles.iconContainer}>

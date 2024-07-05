@@ -1,5 +1,5 @@
-import WeatherDto from "../dto/WeatherDto";
-import LocationDto from "../dto/LocationDto";
+import WeatherDto from "@/dto/WeatherDto";
+import LocationDto from "@/dto/LocationDto";
 import ServiceUtils from "./ServiceUtils";
 
 

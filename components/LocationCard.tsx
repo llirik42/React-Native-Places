@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
-import LocationDto from '../dto/LocationDto'
-import { BORDER_RADIUS } from '../constants';
+import LocationDto from '@/dto/LocationDto'
+import { BORDER_RADIUS } from '@/constants';
 
 
 const getRepr = (x: any) => {

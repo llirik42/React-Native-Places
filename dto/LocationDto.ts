@@ -13,6 +13,5 @@ export default class LocationDto {
         public street: string | undefined,
         public houseNumber: string | undefined,
         public postCode: string | undefined,
-    ) {
-    }
+    ) {}
 }

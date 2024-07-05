@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View, Linking, TouchableOpacity } from 'react-native'
 import { useState } from 'react'
-import PlaceDto from '../dto/PlaceDto'
-import { Collapsible } from '@/app/components/Collapsible'
+import PlaceDto from '@/dto/PlaceDto'
 import { Image } from 'expo-image';
-import { BORDER_RADIUS } from '../constants';
 import Ionicons from '@expo/vector-icons/Ionicons'
+import { BORDER_RADIUS } from '@/constants';
+import { Collapsible } from './Collapsible'
 
 
 type AbstractComponentProps = {
