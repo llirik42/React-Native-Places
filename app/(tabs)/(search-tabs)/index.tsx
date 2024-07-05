@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { StyleSheet, View, Text, TextInput, Alert, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Slider } from '@react-native-assets/slider';
-import LocationService from '@/app/services/LocationService';
-import { BORDER_RADIUS } from '@/app/constants';
-import StorageService from '@/app/services/StorageService';
+import LocationService from '@/services/LocationService';
+import { BORDER_RADIUS } from '@/constants';
+import StorageService from '@/services/StorageService';
 
 
 const locationService: LocationService = new LocationService("location-service-key");

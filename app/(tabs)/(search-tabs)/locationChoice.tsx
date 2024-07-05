@@ -1,11 +1,11 @@
 import { useRouter } from 'expo-router';
 import { useEffect, useState } from 'react'
-import LocationDto from '@/app/dto/LocationDto';
-import LocationCard from '@/app/components/LocationCard';
+import LocationDto from '@/dto/LocationDto';
+import LocationCard from '@/components/LocationCard';
 import { View, FlatList } from 'react-native';
-import StorageService from '@/app/services/StorageService';
-import WeatherService from '@/app/services/WeatherService';
-import PlaceService from '@/app/services/PlaceService';
+import StorageService from '@/services/StorageService';
+import WeatherService from '@/services/WeatherService';
+import PlaceService from '@/services/PlaceService';
 
 
 const weatherService: WeatherService = new WeatherService("weather-service-key");

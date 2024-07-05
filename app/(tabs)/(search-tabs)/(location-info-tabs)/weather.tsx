@@ -1,8 +1,8 @@
 import { StyleSheet, View } from 'react-native'
 import { useState, useEffect } from 'react'
-import WeatherCard from '@/app/components/WeatherCard'
-import WeatherDto from '@/app/dto/WeatherDto';
-import StorageService from '@/app/services/StorageService';
+import WeatherCard from '@/components/WeatherCard'
+import WeatherDto from '@/dto/WeatherDto';
+import StorageService from '@/services/StorageService';
 
 
 export default function WeatherScreen() {

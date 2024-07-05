@@ -1,8 +1,8 @@
 import { View, FlatList } from 'react-native'
 import { useEffect, useState } from 'react'
-import PlaceDto from '@/app/dto/PlaceDto';
-import PlaceCard from '@/app/components/PlaceCard';
-import StorageService from '@/app/services/StorageService';
+import PlaceDto from '@/dto/PlaceDto';
+import PlaceCard from '@/components/PlaceCard';
+import StorageService from '@/services/StorageService';
 
 
 export default function PlacesScreen() {

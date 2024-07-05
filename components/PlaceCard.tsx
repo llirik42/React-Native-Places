@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Linking, TouchableOpacity } from 'react-native'
 import { useState } from 'react'
 import PlaceDto from '../dto/PlaceDto'
-import { Collapsible } from '@/components/Collapsible'
+import { Collapsible } from '@/app/components/Collapsible'
 import { Image } from 'expo-image';
 import { BORDER_RADIUS } from '../constants';
 import Ionicons from '@expo/vector-icons/Ionicons'
